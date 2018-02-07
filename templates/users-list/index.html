@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Users List{% endblock %}
+
+{% if hasMessage %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-block alert-{{messageType }} fade in">
+                <button data-dismiss="alert" class="close close-sm" type="button">
+                    <i class="fa fa-times"></i>
+                </button>
+                {% if messageType == 'danger' %}
+                    <strong>Oh snap!</strong>
+                {% elif messageType == 'success' %}
+                    <strong>Well done!</strong>
+                {% elif messageType == 'info' %}
+                    <strong>Heads up!</strong>
+                {% elif messageType == 'warning' %}
+                    <strong>Warning!</strong>
+                {% endif %}
+                {{ message }}
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% block content %}
+<section class="panel panel-default">
+    <header class="panel-heading font-bold"> Fields for Risk Types </header><br />     
+    <div class="panel-body">
+        <form class="form-horizontal" method="post" id="form_filters">                
+            <div class="control-group">
+                <label for="risk_type" class="control-label required">Risk Type*</label>
+                <div class="controls">
+                    <select name="risk_type" id="risk_type" class="form-control">
+                        <option value="" selected="selected">Select Risk Type</option>
+                        {% for dt in data %}
+                            <option value="{{ dt.id}}">{{ dt.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div> 
+            </div>
+
+
+            <section id="risk_filters">
+            </section>                
+
+
+            <div class="col-sm-4 col-sm-offset-2"> 
+                <button type="button" id="add_btn" class="btn btn-primary" value="" style="display: none;">Add </button> 
+            </div>               
+        </form>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="windows-1252" />
+        <title>Britecore test | {% block title %}{% endblock %}</title>
+
+        <meta name="description" content="overview &amp; stats" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!--basic styles-->
+
+        <link href="https://s3.amazonaws.com/static-files-web/static/assets/css/bootstrap.min.css" rel="stylesheet" />
+        <link href="https://s3.amazonaws.com/static-files-web/static/assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+        <!--link rel="stylesheet" href="https://s3.amazonaws.com/static-files-web/static/assets/css/font-awesome.min.css" /-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://s3.amazonaws.com/static-files-web/static/assets/css/colorbox.css" />
+        <!--script src='https://s3.amazonaws.com/static-files-web/static/assets/js/jquery-2.0.3.min.js'></script-->
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        <script type="text/javascript">
+            //window.jQuery || document.write("<script src='https://s3.amazonaws.com/static-files-web/static/assets/js/jquery-2.0.3.min.js'>" + "<" + "/script>");
+        </script>
+        <!--[if IE 7]>
+          <link rel="stylesheet" href="https://s3.amazonaws.com/static-files-web/static/assets/css/font-awesome-ie7.min.css" />
+        <![endif]-->
+
+        <!--page specific plugin styles-->
+
+        <!--fonts-->
+
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+        <!--ace styles-->
+
+        <link rel="stylesheet" href="https://s3.amazonaws.com/static-files-web/static/assets/css/ace.min.css" />
+        <link rel="stylesheet" href="https://s3.amazonaws.com/static-files-web/static/assets/css/ace-responsive.min.css" />
+        <link rel="stylesheet" href="https://s3.amazonaws.com/static-files-web/static/assets/css/ace-skins.min.css" />
+        <link rel="stylesheet" href="//cdn.datatables.net/1.10.7/css/jquery.dataTables.min.css" />
+        
+        <link rel="stylesheet" href="https://s3.amazonaws.com/static-files-web/static/colorbox.css" />
+
+        <!--[if lte IE 8]>
+          <link rel="stylesheet" href="https://s3.amazonaws.com/static-files-web/static/assets/css/ace-ie.min.css" />
+        <![endif]-->
+
+        <!--inline styles related to this page-->
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+    #sidebar-right {
+  position: fixed;
+  width: 580px;
+  /* overflow-y: scroll; */
+  background: #2c3e50;
+  background: rgba(44,62,80);
+  color: #eee;
+  height: 100%;
+  top: 48px;
+  right:0;
+}
+
+.hidden {
+    display: none;
+}
+</style>
+    {% block head %}
+    {% endblock %}
+        </head>
+
+
+    <body>
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a href="#" class="brand">
+                        <small>
+                            <i class="icon-leaf"></i>
+                            Britecore Admin
+                        </small>
+                    </a><!--/.brand-->
+                    <ul class="nav ace-nav pull-right">
+
+                        <li class="light-blue">
+
+                            <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                                
+                                <img alt="" src="#" class="user-photo" style=" width: 20px; height: 25px; ">
+                                <span class="user-info">
+
+                                    <small>Welcome,</small>
+                                    Admin
+                                </span>
+
+                                <i class="icon-caret-down"></i>
+                            </a>
+                            <ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-closer">
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-cog"></i>
+                                        Settings
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="icon-user"></i>
+                                        Profile
+                                    </a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="/admin/logout">
+                                        <i class="icon-off"></i>
+                                        Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul><!--/.ace-nav-->
+
+                </div><!--/.container-fluid-->
+            </div><!--/.navbar-inner-->
+        </div>
+
+        <div class="main-container container-fluid">
+            <a class="menu-toggler" id="menu-toggler" href="https://s3.amazonaws.com/static-files-web/static/#">
+                <span class="menu-text"></span>
+            </a>
+
+            <div class="sidebar" id="sidebar">
+                <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+
+
+                    <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                        <span class="btn btn-success"></span>
+
+                        <span class="btn btn-info"></span>
+
+                        <span class="btn btn-warning"></span>
+
+                        <span class="btn btn-danger"></span>
+                    </div>
+                </div><!--#sidebar-shortcuts-->
+
+                <ul class="nav nav-list">
+                    <li>
+                        <a href="#">
+                            <i class="icon-desktop"></i>
+                            <span class="menu-text"> Risk Type </span>
+                        </a>
+
+                    </li>
+                </ul><!--/.nav-list-->
+
+                <div class="sidebar-collapse" id="sidebar-collapse">
+                    <i class="icon-double-angle-left"></i>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="breadcrumbs" id="breadcrumbs">
+                    <ul class="breadcrumb">
+                        <li>
+                            <i class="icon-home home-icon"></i>
+                            <a href="/admin">Home</a>
+
+                            <span class="divider">
+                                <i class="icon-angle-right arrow-icon"></i>
+                            </span>
+                        </li>
+                        <li class="active">Risk Type Fields</li>
+                    </ul><!--.breadcrumb-->
+                </div>
+
+                <div class="page-content">
+                    {% block content %}
+                    {% endblock %}
+                </div><!--/.page-content-->
+
+
+            </div><!--/.main-content-->
+        </div><!--/.main-container-->
+
+        <a href="https://s3.amazonaws.com/static-files-web/static/#" id="btn-scroll-up" class="btn-scroll-up btn btn-small btn-inverse">
+            <i class="icon-double-angle-up icon-only bigger-110"></i>
+        </a>
+
+        <script type="text/javascript">
+            if ("ontouchend" in document)
+                document.write("<script src='https://s3.amazonaws.com/static-files-web/static/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
+        </script>
+        <script src="https://s3.amazonaws.com/static-files-web/static/assets/js/bootstrap.min.js"></script>
+
+
+        <!--page specific plugin scripts-->
+
+        <!--[if lte IE 8]>
+          <script src="https://s3.amazonaws.com/static-files-web/static/assets/js/excanvas.min.js"></script>
+        <![endif]-->
+
+        <script src="https://s3.amazonaws.com/static-files-web/static/assets/js/jquery.colorbox-min.js"></script>
+        <script src="https://s3.amazonaws.com/static-files-web/static/assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+        <script src="https://s3.amazonaws.com/static-files-web/static/assets/js/jquery.ui.touch-punch.min.js"></script>
+        <script src="https://s3.amazonaws.com/static-files-web/static/assets/js/jquery.slimscroll.min.js"></script>
+
+       <!--ace scripts-->
+
+<!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+ 
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
+        
+
+            
+        <!--inline scripts related to this page-->
+
+<script type="text/javascript">            
+    var URL = "/";
+    $(document).ready(function() {
+               
+
+        $("#risk_type").on('change', function(){
+            //console.log("checked");
+            var val = $("#risk_type").val();
+            $("#risk_filters").html('');
+            if (val.length > 0){
+                $.ajax({
+                  type:    "GET",
+                  url:     URL+"risk-api/v1/risk-type/"+val,
+                  success: function(data) {
+                    console.log(data);
+                    $.each(data.attributes, function(key,value){
+                        if (value.attribute_type == "s" || value.attrite_type == "b") {
+                            $("#risk_filters").append(selectOption(value.id, value.display));
+                            //console.log("checked");
+                            if (value.attribute_type == "b") {
+                                value.choices = ["Yes", "No"];
+                            }
+                            $.each(value.choices, function(key, val) {
+                                $("#"+value.id).append('<option value="'+val+'">'+val+'</option>');
+                            });
+                        } else if (value.attribute_type == "t" || value.attribute_type == "i") {
+                            $("#risk_filters").append(inputOption(value.id, value.display));
+                        } else if (value.attribute_type == "d") {
+                            $("#risk_filters").append(inputOption(value.id, value.display));
+                            $("#"+value.id).datepicker({dateFormat: 'yy-mm-dd'});
+                        }
+                    });
+                  },
+                  error:   function(jqXHR, textStatus, errorThrown) {
+                        alert("didn't fetched");
+                  }
+                });
+            }
+        });                
+
+    });
+
+
+
+function selectOption(id, label_name, choices) {
+    str = '<div class="control-group"><label for="'
+        +id+'" class="control-label required">'
+        +label_name+'*</label><div class="controls" id="controls_'+id+'"><select name="'+id+'" id="'
+        +id+'" class="form-control"><option value="" selected="selected">Select '
+        +label_name+'</option></select></div></div>';
+    return str;
+}
+
+function inputOption(id, label_name) {
+    str = '<div class="control-group"><label for="'
+        +id+'" class="control-label required">'
+        +label_name+'*</label><div class="controls" id="controls_'+name+'"><input name="'+id+'" id="'
+        +id+'" value="" placeholder="Enter '
+        +label_name+'" class="form-control" type="text"></div></div>';
+    return str
+}
+
+            
+</script>
+        
+    </body>
+</html>

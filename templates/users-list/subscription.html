@@ -1,0 +1,63 @@
+{% extends "static/admin/base.html" %}
+
+{% block title %}Promo Coupon Subscription{% endblock %}
+
+{% if hasMessage %}
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="alert alert-block alert-{{messageType }} fade in">
+                <button data-dismiss="alert" class="close close-sm" type="button">
+                    <i class="fa fa-times"></i>
+                </button>
+                {% if messageType == 'danger' %}
+                    <strong>Oh snap!</strong>
+                {% elif messageType == 'success' %}
+                    <strong>Well done!</strong>
+                {% elif messageType == 'info' %}
+                    <strong>Heads up!</strong>
+                {% elif messageType == 'warning' %}
+                    <strong>Warning!</strong>
+                {% endif %}
+                {{ message }}
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% block content %}
+<section class="panel panel-default">
+    <header class="panel-heading font-bold"> Promo Coupon Subscriptions </header><br />     
+</section>
+
+<section class="panel panel-default">
+    <header class="panel-heading"> All Promo Coupons </header>
+    <div class="table-responsive">
+        <table class="table table-striped b-t b-light text-sm myTable">
+            <thead>
+                <tr>
+                    <th>User Email</th>
+                    <th>Promo Code</th>              
+                    <th>Earned Points</th>
+                    <th>Promo Type</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if subs %}
+                    {% for sub in subs %}
+                        <tr>
+                            <td>{{ sub["user_email"] }}</td>
+                            <td>{{ sub["coupon_code"] }}</td>
+                            <td>{{ sub["coupon_value"] }}</td>
+                            <td>{{ sub["coupon_type"] }}</td>
+                            <td>{{ sub["created_on"] }}</td>                       
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
+{% endblock %}

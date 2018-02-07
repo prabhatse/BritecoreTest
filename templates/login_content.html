@@ -1,0 +1,79 @@
+<div id="login-box" class="login-box visible widget-box no-border">
+    <div class="widget-body">
+        <div class="widget-main">
+
+            <h4 class="header blue lighter bigger">
+                <i class="icon-coffee green"></i>
+                Please Enter Your Information
+            </h4>
+            <?php if ($this->hasMessage): ?>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="alert alert-block alert-<?php echo $this->messageType ?> fade in">
+                            <button data-dismiss="alert" class="close close-sm" type="button">
+                                <i class="fa fa-times"></i>
+                            </button>
+                            <?php if ($this->messageType == "danger"): ?>
+                                <strong>Oh snap!</strong>
+                            <?php elseif ($this->messageType == "success"): ?>
+                                <strong>Well done!</strong>
+                            <?php elseif ($this->messageType == "info"): ?>
+                                <strong>Heads up!</strong>
+                            <?php elseif ($this->messageType == "warning"): ?>
+                                <strong>Warning!</strong>
+                            <?php endif; ?>
+                            <?php echo $this->message; ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+
+            <div class="space-6"></div>
+
+            <form method="post">
+                <fieldset>
+                    <label>
+                        <span class="block input-icon input-icon-right">
+                            <input type="text" class="span12" placeholder="Username" name="email"/>
+                            <i class="icon-user"></i>
+                        </span>
+                    </label>
+
+                    <label>
+                        <span class="block input-icon input-icon-right">
+                            <input type="password" class="span12" placeholder="Password" name="password"/>
+                            <i class="icon-lock"></i>
+                        </span>
+                    </label>
+
+                    <div class="space"></div>
+
+                    <div class="clearfix">
+                        <label class="inline">
+                            <input type="checkbox" />
+                            <!-- <span class="lbl"> Remember Me</span> -->
+                            <span > Remember Me</span>
+                        </label>
+                        <input type="hidden" name="request_type" value="login">
+                        <button type="submit" class="width-35 pull-right btn btn-small btn-primary">
+                            <i class="icon-key"></i>
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="space-4"></div>
+                </fieldset>
+            </form>
+
+        </div><!--/widget-main-->
+
+        <div class="toolbar clearfix">
+            <div>
+                <a href="<?php echo $this->baseUrl(); ?>/admin/auth/forgot-password" class="forgot-password-link">
+                    <i class="icon-arrow-left"></i>
+                    I forgot my password
+                </a>
+            </div>
+        </div>
+    </div><!--/widget-body-->
+</div><!--/login-box-->
